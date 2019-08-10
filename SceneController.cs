@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-	public const int gridRows=2;
+	public const int gridRows=2;		//values for how many grid spaces and how far apart they are
 	public const int gridCols=4;
 	public const float offsetX=2f;
 	public const float offsetY=2.5f;
@@ -20,8 +20,8 @@ public class SceneController : MonoBehaviour
 	void Start()
 	{
 		Vector3 startPos = originalCard.transform.position;
-		int[] numbers = { 0,0,1,1,2,2,3,3 };
-		numbers = ShuffleArray(numbers;);
+		int[] numbers = { 0,0,1,1,2,2,3,3 };//array is for pairs of cards for card sprites
+		numbers = ShuffleArray(numbers);//call a function that will shuffle array
 		for (int i =0; i < gridCols; i++)	
 		{
 			for (int j=0; j<gridRows; j++)
@@ -36,7 +36,7 @@ public class SceneController : MonoBehaviour
 					card=Instantiate(originalCard) as MemoryCard;
 				}
 				int index = j *gridCols+i;
-				int id = numbers[index];
+				int id = numbers[index];//retrieve id from shuffled list
 				card.SetCard(id, images[id];
 				float posX = (offsetX*i) + startPos.x;
 				float posY = (offsetY*j*i) + startPos.y;
